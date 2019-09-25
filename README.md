@@ -193,3 +193,103 @@ public class analyzenumber {
 }
 
 7-6
+public class helloworld {
+
+	public static int linearsearch(int[] list, int key) {
+		for (int i = 0; i < list.length; i++)
+		{
+			if (key == list[i])
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
+}
+
+7-7
+public class helloworld {
+	public static int binarySearch(int[] list, int key) {
+		int low = 0;
+		int high = list.length - 1;
+		
+		while (high >= low)
+		{
+			int mid = (low + high) / 2;
+			if(key < list[mid])
+			{
+				high = mid - 1;
+			}
+			else if (key == list[mid])
+			{
+				return mid;
+			}
+			else 
+				low = mid + 1;
+		}
+		return -low - 1;
+	}
+}
+
+7-8
+public class helloworld {
+
+	public static void selectionsort(double[] list) {
+		for (int i = 0; i <  list.length; i++)
+		{
+			double currentmin = list[i];
+			int currentminindex = i;
+			
+			for (int j = i + 1; j < list.length; j++)
+			{
+				if(currentmin > list[j])
+				{
+					currentmin = list[j];
+					currentminindex = j;
+				}
+			}
+			
+			if (currentminindex != i)
+			{
+				list[currentminindex] = list[i];
+				list[i] = currentmin;
+			}
+		}
+	}
+}
+
+7-9
+public class helloworld {
+
+	public static void main(String[] args) {
+		if (args.length != 3)
+		{
+			System.out.println("usage:java calculator operandl operator operand2");
+			System.exit(0);
+		}
+		
+		int result = 0;
+		
+		switch (args[1].charAt(0))
+		{
+		case '+': result = Integer.parseInt(args[0]) +
+				           Integer.parseInt(args[2]);
+		          break;
+
+		case '-': result = Integer.parseInt(args[0]) -
+		                   Integer.parseInt(args[2]);
+                  break;
+
+		case '.': result = Integer.parseInt(args[0]) *
+		                   Integer.parseInt(args[2]);
+                  break; 
+                  
+		case '/': result = Integer.parseInt(args[0]) /
+		                   Integer.parseInt(args[2]);
+                  break;                  
+		}
+		
+		System.out.println(args[0] + ' ' + args[1] + ' ' + args[2]+
+				" = " + result);
+	}
+}
